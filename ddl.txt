@@ -1,0 +1,33 @@
+mysql> show columns from users;
++------------+---------------------+------+-----+---------+----------------+
+| Field      | Type                | Null | Key | Default | Extra          |
++------------+---------------------+------+-----+---------+----------------+
+| id         | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |
+| first_name | text                | NO   |     | NULL    |                |
+| last_name  | text                | NO   |     | NULL    |                |
+| balance    | double              | NO   |     | 0       |                |
++------------+---------------------+------+-----+---------+----------------+
+
+
+
+======================================================================================
+
+
+create table transactions(
+	id bigint(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	user_from int NOT NULL,
+	user_to int NOT NULL,
+	transaction_amount double NOT NULL,
+	transaction_date timestamp NOT NULL default now()
+);
+
+mysql> show columns from transactions;
++--------------------+---------------------+------+-----+-------------------+----------------+
+| Field              | Type                | Null | Key | Default           | Extra          |
++--------------------+---------------------+------+-----+-------------------+----------------+
+| id                 | bigint(20) unsigned | NO   | PRI | NULL              | auto_increment |
+| user_from          | int(11)             | NO   |     | NULL              |                |
+| user_to            | int(11)             | NO   |     | NULL              |                |
+| transaction_amount | double              | NO   |     | NULL              |                |
+| transaction_date   | timestamp           | NO   |     | CURRENT_TIMESTAMP |                |
++--------------------+---------------------+------+-----+-------------------+----------------+
